@@ -6,3 +6,4 @@ Class Schedule:
 
 - Naive Bayes and classification metrics
 - LDA, QDA and cross validation
+- Image Classification with baseline Models
