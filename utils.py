@@ -1,8 +1,25 @@
+import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve
 from sklearn.metrics import roc_auc_score
 
+def plot_2d_embedding(X, y, title=None, size = size):
+    x_min, x_max = np.min(X, 0), np.max(X, 0)
+    X = (X - x_min) / (x_max - x_min)
+
+    plt.figure(figsize=(15, 10))
+    ax = plt.subplot(111)
+    for i in range(X.shape[0]):
+        plt.text(X[i, 0], X[i, 1], str(y[i]),
+                 color=plt.cm.Set1(y[i] / 10.),
+                 fontdict={'weight': 'bold', 'size': size})
+        
+    plt.xticks([]), plt.yticks([])
+    
+    if title is not None:
+        plt.title(title)
+        
 def make_dist_plot(x, hue, data):
     sns.set(rc={'figure.figsize':(15,10)})
     sns.set(font_scale = 1)
