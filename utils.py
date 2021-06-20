@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve
 from sklearn.metrics import roc_auc_score
 
-def plot_2d_embedding(X, y, title=None, size = size):
+def plot_2d_embedding(X, y, size, title=None):
     x_min, x_max = np.min(X, 0), np.max(X, 0)
     X = (X - x_min) / (x_max - x_min)
 
